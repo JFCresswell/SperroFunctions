@@ -7,15 +7,15 @@ using Microsoft.Azure.WebJobs.Host;
 
 namespace SperroFunctions
 {
-    public static class Sponsors
+    public static class SubmittedGames
     {
-        [FunctionName("Sponsors")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "SperroApi/sponsors")]HttpRequestMessage req, TraceWriter log)
+        [FunctionName("SubmittedGames")]
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "SperroApi/submittedgames")]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
             // Fetching the name from the path parameter in the request URL
-            return req.CreateResponse(HttpStatusCode.OK, "Hello from sponsors");
+            return req.CreateResponse(HttpStatusCode.OK, "Hello from submitted games");
         }
     }
 }
