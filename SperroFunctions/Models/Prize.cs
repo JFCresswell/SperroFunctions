@@ -8,6 +8,18 @@ namespace SperroFunctions.Models
 {
     public class Prize
     {
+        public int Id { get; set; }
 
+        public string ShortDescription { get; set; }
+
+        public string FullDescription { get; set; }
+
+        public DateTime AvailableDate { get; set; }
+
+         public DateTime AwardedDate { get; set; }
+
+        public PrizeCategory Category { get; set; }
+
+        public Decimal CashValue { get; set; }
     }
 }

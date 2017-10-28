@@ -8,7 +8,9 @@ namespace SperroFunctions.Models
 {
     public class Sponsor
     {
-       public SponsorType Type { get; set; }
+        public int Id { get; set; }
+
+        public SponsorType Type { get; set; }
 
         public Address Address { get; set; }
         
