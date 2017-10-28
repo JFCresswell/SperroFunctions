@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Models
 {
-    public class SponsorTableEntity : BaseTableEntity
+    public class Questionnaire
     {
+        // basic information
+        public Customer Customer { get; set; }
+
+
     }
 }

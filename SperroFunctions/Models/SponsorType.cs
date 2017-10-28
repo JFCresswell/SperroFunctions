@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Models
 {
-    public class SponsorTableEntity : BaseTableEntity
+    public enum SponsorType : Int16
     {
+        Business,
+        Church,
+        Charity,
+        Individual
     }
 }
