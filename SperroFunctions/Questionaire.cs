@@ -10,7 +10,7 @@ namespace SperroFunctions
     public static class Questionaire
     {
         [FunctionName("Questionaire")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "SperroApi/questionaire")]HttpRequestMessage req, TraceWriter log)
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/questionaire")]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
