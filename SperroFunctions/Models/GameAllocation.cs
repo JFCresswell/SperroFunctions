@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Models
 {
-    public class DrawingEntry
+    public class GameAllocation
     {
         public int CustomerId { get; set; }
 
-        public int PrizeId { get; set; }
+        public int GameId { get; set; }
 
         public int PointsAllocated { get; set; }
-
-        public DateTime EntryTime { get; set; }
     }
 }

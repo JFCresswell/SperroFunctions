@@ -21,5 +21,7 @@ namespace SperroFunctions.Models
         public string SecondaryEmail { get; set; }
 
         public string Phone { get; set; }
+
+        public int CurrentPointTotal { get; set; }
     }
 }

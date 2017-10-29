@@ -8,9 +8,12 @@ namespace SperroFunctions.Models
 {
     public class Disposition
     {
-        public DateTime DecisionDateAndTime;
-        public int DispositionCode;
-        public string Name;
-        public string Email;
+        public DateTime DecisionDateAndTime { get; set; }
+
+        public int DispositionCode { get; set; }
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
     }
 }
