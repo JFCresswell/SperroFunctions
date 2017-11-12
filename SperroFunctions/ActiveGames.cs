@@ -7,29 +7,23 @@ using Microsoft.Azure.WebJobs.Host;
 using SperroFunctions.Models;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using SperroFunctions.Interfaces;
+using SperroFunctions.DependencyInjection.DependencyInjection;
 
 namespace SperroFunctions
 {
     public static class ActiveGames
     {
         [FunctionName("ActiveGames")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/activegames")]HttpRequestMessage req, TraceWriter log)
+        public static HttpResponseMessage Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/activegames")]HttpRequestMessage req,
+            [Inject(typeof(IGameRepository))]IGameRepository gameRepository,
+            TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
-            // TEMP: active games object
-            var activeGames = new List<Game>();
-
-            activeGames.Add(new Game()
-            {
-                Id = 1,
-                Title = "Random Run",
-                Description = "Total randomness",
-                Publisher = new GamePublisher()
-            });
-
             // Fetching the name from the path parameter in the request URL
-            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(activeGames));
+            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(gameRepository.FindActve()));
         }
     }
 }

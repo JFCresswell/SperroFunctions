@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Interfaces
 {
-    interface IGameRepository : IRepository<Game, int>
+    public interface IGameRepository : IRepository<Game, int>
     {
         IEnumerable<Game> FindAll();
 
