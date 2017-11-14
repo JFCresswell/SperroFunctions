@@ -10,6 +10,8 @@ namespace SperroFunctions.Models
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public SponsorType Type { get; set; }
 
         public Address Address { get; set; }

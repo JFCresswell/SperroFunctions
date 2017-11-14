@@ -27,6 +27,7 @@ namespace SperroFunctions.DependencyInjection
             {
                 services.AddSingleton<IGameRepository, GameRepository>();
                 services.AddSingleton<IPrizeRepository, PrizeRepository>();
+                services.AddSingleton<ISponsorRepository, SponsorRepository>();
             }
         }
     }
