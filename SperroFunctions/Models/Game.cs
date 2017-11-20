@@ -15,5 +15,7 @@ namespace SperroFunctions.Models
         public string Description { get; set; }
 
         public GamePublisher Publisher { get; set; }
+
+        public GameApprovalStatus Status { get; set; }
     }
 }

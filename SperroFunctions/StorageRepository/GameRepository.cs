@@ -10,53 +10,51 @@ namespace SperroFunctions.StorageRepository
 {
     public class GameRepository : IGameRepository
     {
+        // temporary
+        private IList<Game> games = new List<Game>();
+
         public void Create(Game entity)
         {
-            throw new NotImplementedException();
+            games.Add(entity);
         }
 
         public void Delete(Game entity)
         {
-            throw new NotImplementedException();
+            games.Remove(entity);
         }
 
         public IEnumerable<Game> FindActve()
         {
-            var activeGames = new List<Game>();
-
-            activeGames.Add(new Game()
-            {
-                Id = 1,
-                Title = "Random Run",
-                Description = "Total randomness",
-                Publisher = new GamePublisher()
-            });
-
-            return activeGames.AsEnumerable<Game>();
+            return games.Where(g => g.Status == GameApprovalStatus.Approved);
         }
 
         public IEnumerable<Game> FindAll()
         {
-            throw new NotImplementedException();
+            return games.AsEnumerable();
         }
 
         public Game GetById(int id)
         {
-            return new Game()
-            {
-                Id = 2,
-                Title = "Temporary game",
-                Description = "Just to test interface",
-                Publisher = new GamePublisher()
-                {
-                    CompanyName = "Activision"
-                }
-            };
+            return games.Where(g => g.Id == id).FirstOrDefault();
         }
 
         public void Update(Game entity)
         {
-            throw new NotImplementedException();
+            int offset = -1;
+
+            for (int idx = 0; idx < games.Count; idx++)
+            {
+                if (games[idx].Id == entity.Id)
+                {
+                    offset = idx;
+                    break;
+                }
+            }
+
+            if (offset != -1)
+            {
+                this.games[offset] = entity;
+            }
         }
     }
 }
