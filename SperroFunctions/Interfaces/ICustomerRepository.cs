@@ -9,6 +9,6 @@ namespace SperroFunctions.Interfaces
 {
     public interface ICustomerRepository : IRepository<Customer, int>
     {
-        IEnumerable<Prize> FindAll();
+        IEnumerable<Customer> FindAll();
     }
 }

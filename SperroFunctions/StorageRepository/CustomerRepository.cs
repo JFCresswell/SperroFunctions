@@ -10,29 +10,47 @@ namespace SperroFunctions.StorageRepository
 {
     public class CustomerRepository : ICustomerRepository
     {
+        // temporary
+        private IList<Customer> customers = new List<Customer>();
+
         public void Create(Customer entity)
         {
-            throw new NotImplementedException();
+            // TODO: check for duplicates, etc. 
+            this.customers.Add(entity);
         }
 
         public void Delete(Customer entity)
         {
-            throw new NotImplementedException();
+            this.customers.Remove(entity);
         }
 
-        public IEnumerable<Prize> FindAll()
+        public IEnumerable<Customer> FindAll()
         {
-            throw new NotImplementedException();
+            return this.customers.AsEnumerable();
         }
 
         public Customer GetById(int id)
         {
-            throw new NotImplementedException();
+            return this.customers.Where(c => c.Id == id).FirstOrDefault();
         }
 
         public void Update(Customer entity)
         {
-            throw new NotImplementedException();
+            int offset = -1;
+
+            for (int idx = 0; idx < this.customers.Count; idx++)
+            {
+                if (this.customers[idx].Id == entity.Id)
+                {
+                    offset = idx;
+                    break;
+                }
+            }
+
+            if (offset != -1)
+            {
+                this.customers[offset] = entity;
+            }
         }
     }
 }

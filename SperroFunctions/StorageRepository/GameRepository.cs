@@ -15,36 +15,36 @@ namespace SperroFunctions.StorageRepository
 
         public void Create(Game entity)
         {
-            games.Add(entity);
+            this.games.Add(entity);
         }
 
         public void Delete(Game entity)
         {
-            games.Remove(entity);
+            this.games.Remove(entity);
         }
 
         public IEnumerable<Game> FindActve()
         {
-            return games.Where(g => g.Status == GameApprovalStatus.Approved);
+            return this.games.Where(g => g.Status == GameApprovalStatus.Approved);
         }
 
         public IEnumerable<Game> FindAll()
         {
-            return games.AsEnumerable();
+            return this.games.AsEnumerable();
         }
 
         public Game GetById(int id)
         {
-            return games.Where(g => g.Id == id).FirstOrDefault();
+            return this.games.Where(g => g.Id == id).FirstOrDefault();
         }
 
         public void Update(Game entity)
         {
             int offset = -1;
 
-            for (int idx = 0; idx < games.Count; idx++)
+            for (int idx = 0; idx < this.games.Count; idx++)
             {
-                if (games[idx].Id == entity.Id)
+                if (this.games[idx].Id == entity.Id)
                 {
                     offset = idx;
                     break;
