@@ -10,14 +10,17 @@ namespace SperroFunctions.StorageRepository
 {
     public class PrizeRepository : IPrizeRepository
     {
+        // temporary
+        private IList<Prize> prizes = new List<Prize>();
+
         public void Create(Prize entity)
         {
-            throw new NotImplementedException();
+            this.prizes.Add(entity);
         }
 
         public void Delete(Prize entity)
         {
-            throw new NotImplementedException();
+            this.prizes.Remove(entity);
         }
 
         public IEnumerable<Prize> FindActve()
@@ -39,17 +42,31 @@ namespace SperroFunctions.StorageRepository
 
         public IEnumerable<Prize> FindAll()
         {
-            throw new NotImplementedException();
+            return this.prizes.AsEnumerable();
         }
 
         public Prize GetById(int id)
         {
-            throw new NotImplementedException();
+            return this.prizes.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public void Update(Prize entity)
         {
-            throw new NotImplementedException();
+            int offset = -1;
+
+            for (int idx = 0; idx < this.prizes.Count; idx++)
+            {
+                if (this.prizes[idx].Id == entity.Id)
+                {
+                    offset = idx;
+                    break;
+                }
+            }
+
+            if (offset != -1)
+            {
+                this.prizes[offset] = entity;
+            }
         }
     }
 }
