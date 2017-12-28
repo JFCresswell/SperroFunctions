@@ -10,7 +10,7 @@ namespace SperroFunctions
     public static class PendingGame
     {
         [FunctionName("PendingGame")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function,  "post", Route = "sperrov1/games/game")]HttpRequestMessage req, string name, TraceWriter log)
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function,  "post", Route = "sperrov1/games/pendinggame")]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
