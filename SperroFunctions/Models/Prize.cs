@@ -10,6 +10,8 @@ namespace SperroFunctions.Models
     {
         public int Id { get; set; }
 
+        public PrizeSubmitStatus SubmitStatus { get; set; }
+
         public string ShortDescription { get; set; }
 
         public string FullDescription { get; set; }
