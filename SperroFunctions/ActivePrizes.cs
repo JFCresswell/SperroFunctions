@@ -14,7 +14,7 @@ namespace SperroFunctions
     {
         [FunctionName("ActivePrizes")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/activeprizes")]HttpRequestMessage req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/activeprizes")]HttpRequestMessage req,
             [Inject(typeof(IPrizeRepository))]IPrizeRepository prizeRepository,
             TraceWriter log)
         {

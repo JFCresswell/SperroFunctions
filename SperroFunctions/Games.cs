@@ -21,20 +21,11 @@ namespace SperroFunctions
         {
             log.Info("C# HTTP trigger function processed a request.");
 
-            if (req.Method == HttpMethod.Get)
-            {
-                int id = int.Parse(req.GetQueryNameValuePairs().FirstOrDefault(q => string.Compare(q.Key, "id", true) == 0).Value);
+            int id = int.Parse(req.GetQueryNameValuePairs().FirstOrDefault(q => string.Compare(q.Key, "id", true) == 0).Value);
 
-                // Fetching the name from the path parameter in the request URL
-                return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(gameRepository.GetById(id)));
-            }
-            else if (req.Method == HttpMethod.Post)
-            {
-                return req.CreateResponse(HttpStatusCode.OK, "Post called, not yet implemented");
-            }
-
-            return req.CreateResponse(HttpStatusCode.NotImplemented);
-
+            // Fetching the name from the path parameter in the request URL
+            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(gameRepository.GetById(id)));
+ 
         }
     }
 }

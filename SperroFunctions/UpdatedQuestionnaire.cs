@@ -11,17 +11,17 @@ using SperroFunctions.Models;
 
 namespace SperroFunctions
 {
-    public static class PendingPrize
+    public static class UpdatedQuestionnaire
     {
-        [FunctionName("PendingPrize")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/prizes/pendingprize/{prize}")]HttpRequestMessage req,
-            [Inject(typeof(IPrizeRepository))]IPrizeRepository prizeRepository,
-            Prize prize,
+        [FunctionName("UpdatedQuestionnaire")]
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/pendingquestionnaire/{questionnaire}")]HttpRequestMessage req,
+           [Inject(typeof(IQuestionnaireRepository))]IQuestionnaireRepository questionnaireRepository,
+            Questionnaire questionnaire,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
-            prizeRepository.Create(prize);
+            questionnaireRepository.UpdateQuestionnaire(questionnaire);
 
             // Fetching the name from the path parameter in the request URL
             return req.CreateResponse(HttpStatusCode.OK);

@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Interfaces
 {
-    public interface IGameRepository : IRepository<Game, int>
+    public interface IQuestionnaireRepository
     {
-        IEnumerable<Game> FindAll();
+        Questionnaire GetQuestionnaire(int id);
 
-        IEnumerable<Game> FindActve();
-
-        IEnumerable<Game> FindSubmitted();
+        void UpdateQuestionnaire(Questionnaire questionnaire);
     }
 }

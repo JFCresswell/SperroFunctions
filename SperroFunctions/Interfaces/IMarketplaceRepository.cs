@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Interfaces
 {
-    public interface IGameRepository : IRepository<Game, int>
+    public interface IMarketplaceRepository 
     {
-        IEnumerable<Game> FindAll();
-
-        IEnumerable<Game> FindActve();
-
-        IEnumerable<Game> FindSubmitted();
+        MarketplaceSnapshot GetSnapshot(int id);
     }
 }

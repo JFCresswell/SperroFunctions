@@ -10,18 +10,18 @@ using SperroFunctions.Interfaces;
 
 namespace SperroFunctions
 {
-    public static class SubmittedGames
+    public static class PendingQuestionnaire
     {
-        [FunctionName("SubmittedGames")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/games/submittedgames")]HttpRequestMessage req,
-            [Inject(typeof(IGameRepository))]IGameRepository gameRepository,
-
+        [FunctionName("PendingQuestionnaire")]
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/pendingquestionnaire/{id}")]HttpRequestMessage req,
+            [Inject(typeof(IQuestionnaireRepository))]IQuestionnaireRepository questionnaireRepository,
+            int id,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
             // Fetching the name from the path parameter in the request URL
-            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(gameRepository.FindSubmitted()));
+            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(questionnaireRepository.GetQuestionnaire(id)));
         }
     }
 }

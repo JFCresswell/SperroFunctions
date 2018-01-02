@@ -33,6 +33,11 @@ namespace SperroFunctions.StorageRepository
             return this.games.AsEnumerable();
         }
 
+        public IEnumerable<Game> FindSubmitted()
+        {
+            return this.games.Where(g => g.Status == GameApprovalStatus.Pending);
+        }
+
         public Game GetById(int id)
         {
             return this.games.Where(g => g.Id == id).FirstOrDefault();

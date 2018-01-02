@@ -16,7 +16,7 @@ namespace SperroFunctions
     {
         [FunctionName("ActiveGames")]
         public static HttpResponseMessage Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/activegames")]HttpRequestMessage req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/activegames")]HttpRequestMessage req,
             [Inject(typeof(IGameRepository))]IGameRepository gameRepository,
             TraceWriter log)
         {
