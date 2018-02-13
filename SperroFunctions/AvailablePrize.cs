@@ -12,7 +12,7 @@ namespace SperroFunctions.Models
     public static class AvailablePrize
     {
         [FunctionName("AvailablePrize")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/prizes/prize/{id}")]HttpRequestMessage req,
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/availableprize/{id}")]HttpRequestMessage req,
             [Inject(typeof(IPrizeRepository))]IPrizeRepository prizeRepository,
             int id,
             TraceWriter log)

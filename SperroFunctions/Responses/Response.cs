@@ -8,7 +8,7 @@ namespace SperroFunctions.Responses
 {
     public class Response
     {
-        public int Code { get; private set; }
+        public ResponseCode Code { get; private set; }
 
         public string Message { get; private set; }
     }

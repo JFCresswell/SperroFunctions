@@ -14,7 +14,7 @@ namespace SperroFunctions
     public static class PendingPrize
     {
         [FunctionName("PendingPrize")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/prizes/pendingprize/{prize}")]HttpRequestMessage req,
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/pendingprize/{prize}")]HttpRequestMessage req,
             [Inject(typeof(IPrizeRepository))]IPrizeRepository prizeRepository,
             Prize prize,
             TraceWriter log)

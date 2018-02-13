@@ -15,13 +15,12 @@ namespace SperroFunctions
     {
         [FunctionName("Games")]
         public static HttpResponseMessage Run([
-            HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "sperrov1/games/game")]HttpRequestMessage req,
+            HttpTrigger(AuthorizationLevel.Function, "get", Route = "sperrov1/game/{id}")]HttpRequestMessage req,
             [Inject(typeof(IGameRepository))]IGameRepository gameRepository,
+            int id,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
-
-            int id = int.Parse(req.GetQueryNameValuePairs().FirstOrDefault(q => string.Compare(q.Key, "id", true) == 0).Value);
 
             // Fetching the name from the path parameter in the request URL
             return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(gameRepository.GetById(id)));

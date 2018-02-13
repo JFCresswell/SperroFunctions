@@ -13,7 +13,7 @@ namespace SperroFunctions
     public static class PendingSponsor
     {
         [FunctionName("Sponsor")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/sponsors/pendingsponsor/{sponsor}")]HttpRequestMessage req,
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/pendingsponsor/{sponsor}")]HttpRequestMessage req,
              [Inject(typeof(ISponsorRepository))]ISponsorRepository sponsorRepository,
              Sponsor sponsor,
              TraceWriter log)
