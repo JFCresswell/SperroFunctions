@@ -21,7 +21,7 @@ namespace SperroFunctions
             log.Info("C# HTTP trigger function processed a request.");
 
             // Fetching the name from the path parameter in the request URL
-            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(questionnaireRepository.GetQuestionnaire(id)));
+            return req.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(questionnaireRepository.GetById(id)));
         }
     }
 }

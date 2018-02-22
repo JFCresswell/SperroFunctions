@@ -36,20 +36,11 @@ namespace SperroFunctions.StorageRepository
 
         public void Update(Customer entity)
         {
-            int offset = -1;
+            var idx = this.customers.IndexOf(entity);
 
-            for (int idx = 0; idx < this.customers.Count; idx++)
+            if (idx != -1)
             {
-                if (this.customers[idx].Id == entity.Id)
-                {
-                    offset = idx;
-                    break;
-                }
-            }
-
-            if (offset != -1)
-            {
-                this.customers[offset] = entity;
+                 this.customers[idx] = entity;
             }
         }
     }

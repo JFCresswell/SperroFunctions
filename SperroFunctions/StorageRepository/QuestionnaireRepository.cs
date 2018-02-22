@@ -10,14 +10,31 @@ namespace SperroFunctions.StorageRepository
 {
     public class QuestionnaireRepository : IQuestionnaireRepository
     {
-        public Questionnaire GetQuestionnaire(int id)
+        private IList<Questionnaire> questionnaires = new List<Questionnaire>();
+
+        public void Create(Questionnaire entity)
         {
-            throw new NotImplementedException();
+            this.questionnaires.Add(entity);
         }
 
-        public void UpdateQuestionnaire(Questionnaire questionnaire)
+        public void Delete(Questionnaire entity)
         {
-            throw new NotImplementedException();
+            this.questionnaires.Remove(entity);
         }
-    }
+
+        public Questionnaire GetById(int id)
+        {
+            return this.questionnaires.Where(q => q.Id == id).FirstOrDefault();
+        }
+
+        public void Update(Questionnaire entity)
+        {
+            var idx = this.questionnaires.IndexOf(entity);
+
+            if (idx == -1)
+            {
+                this.questionnaires[idx] = entity;
+            }
+        }
+     }
 }

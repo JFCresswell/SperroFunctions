@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace SperroFunctions.Interfaces
 {
-    public interface IQuestionnaireRepository
+    public interface IQuestionnaireRepository : IRepository<Questionnaire, int>
     {
-        Questionnaire GetQuestionnaire(int id);
-
-        void UpdateQuestionnaire(Questionnaire questionnaire);
     }
 }

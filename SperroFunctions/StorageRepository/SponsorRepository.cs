@@ -10,46 +10,37 @@ namespace SperroFunctions.StorageRepository
 {
     public class SponsorRepository : ISponsorRepository
     {
+        // temporary
+        private IList<Sponsor> sponsors = new List<Sponsor>();
+
         public void Create(Sponsor entity)
         {
-            throw new NotImplementedException();
+            sponsors.Add(entity);
         }
 
         public void Delete(Sponsor entity)
         {
-            throw new NotImplementedException();
+            this.sponsors.Remove(entity);
         }
 
         public IEnumerable<Sponsor> FindAll()
         {
-            var sponsors = new List<Sponsor>();
-
-            sponsors.Add(new Sponsor()
-            {
-                Id = 1,
-                Name = "1st Baptist Church",
-                Address = new Address()
-                {
-                    Street1 = "100 Main St.",
-                    City = "Anytown",
-                    State = "Missouri",
-                    PostalCode = "64131",
-                    Country = "US"
-                },
-                Type = SponsorType.Church
-            });
-
             return sponsors.AsEnumerable<Sponsor>();
         }
 
         public Sponsor GetById(int id)
         {
-            throw new NotImplementedException();
+            return this.sponsors.Where(s => s.Id == id).FirstOrDefault();
         }
 
         public void Update(Sponsor entity)
         {
-            throw new NotImplementedException();
+            var idx = this.sponsors.IndexOf(entity);
+
+            if (idx == -1)
+            {
+                this.sponsors[idx] = entity;
+            }
         }
     }
 }

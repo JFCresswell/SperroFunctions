@@ -52,20 +52,11 @@ namespace SperroFunctions.StorageRepository
 
         public void Update(Prize entity)
         {
-            int offset = -1;
+            var idx = this.prizes.IndexOf(entity);
 
-            for (int idx = 0; idx < this.prizes.Count; idx++)
+            if (this.prizes.IndexOf(entity) != -1)
             {
-                if (this.prizes[idx].Id == entity.Id)
-                {
-                    offset = idx;
-                    break;
-                }
-            }
-
-            if (offset != -1)
-            {
-                this.prizes[offset] = entity;
+                this.prizes[idx] = entity;
             }
         }
     }

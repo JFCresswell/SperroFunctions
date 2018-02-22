@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using Microsoft.Azure.WebJobs;
@@ -11,12 +10,12 @@ using SperroFunctions.Models;
 
 namespace SperroFunctions
 {
-    public static class UpdatedQuestionnaire
+    public static class CandidateQuestionnaire
     {
-        [FunctionName("UpdatedQuestionnaire")]
-        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/updatedquestionnaire")]HttpRequestMessage req,
-           [Inject(typeof(IQuestionnaireRepository))]IQuestionnaireRepository questionnaireRepository,
-            TraceWriter log)
+        [FunctionName("CandidateQuestionnaire")]
+        public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "sperrov1/candidatequestionnaire")]HttpRequestMessage req,
+          [Inject(typeof(IQuestionnaireRepository))]IQuestionnaireRepository questionnaireRepository,
+          TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
@@ -25,7 +24,7 @@ namespace SperroFunctions
 
             Questionnaire questionnaire = JsonConvert.DeserializeObject<Questionnaire>(jsonContent);
 
-            questionnaireRepository.Update(questionnaire);
+            questionnaireRepository.Create(questionnaire);
 
             // Fetching the name from the path parameter in the request URL
             return req.CreateResponse(HttpStatusCode.OK);

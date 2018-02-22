@@ -8,6 +8,8 @@ namespace SperroFunctions.Models
 {
     public class Questionnaire
     {
+        public int Id { get; set; }
+
         // basic information
         public Customer Customer { get; set; }
 

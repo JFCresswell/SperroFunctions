@@ -14,11 +14,13 @@ namespace SperroFunctions.Models
 
         public SponsorType Type { get; set; }
 
+        public SponsorStatus Status { get; set; }
+
         public Address Address { get; set; }
         
         public IList<Prize> Prizes { get; private set; }
 
-        public void AddPrize(Prize prize)
+        public void AddSpnsor(Prize prize)
         {
             this.Prizes.Add(prize);
         }
