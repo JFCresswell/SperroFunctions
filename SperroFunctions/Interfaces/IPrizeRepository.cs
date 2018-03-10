@@ -9,6 +9,10 @@ namespace SperroFunctions.Interfaces
 {
     public interface IPrizeRepository : IRepository<Prize, int>
     {
+        int ActiveCount { get; }
+
+        int PendingCount { get; }
+
         IEnumerable<Prize> FindAll();
 
         IEnumerable<Prize> FindActve();

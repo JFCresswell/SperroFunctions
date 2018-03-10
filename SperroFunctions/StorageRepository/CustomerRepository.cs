@@ -13,6 +13,14 @@ namespace SperroFunctions.StorageRepository
         // temporary
         private IList<Customer> customers = new List<Customer>();
 
+        public int Count
+        {
+            get
+            {
+                return customers.Count();
+            }
+        }
+
         public void Create(Customer entity)
         {
             // TODO: check for duplicates, etc. 

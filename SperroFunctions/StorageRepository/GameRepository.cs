@@ -13,6 +13,14 @@ namespace SperroFunctions.StorageRepository
         // temporary
         private IList<Game> games = new List<Game>();
 
+        public int Count
+        {
+            get
+            {
+                return this.games.Count();
+            }
+        }
+
         public void Create(Game entity)
         {
             this.games.Add(entity);

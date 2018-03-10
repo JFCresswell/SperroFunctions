@@ -13,6 +13,14 @@ namespace SperroFunctions.StorageRepository
         // temporary
         private IList<Sponsor> sponsors = new List<Sponsor>();
 
+        public int Count
+        {
+            get
+            {
+                return this.sponsors.Count();
+            }
+        }
+
         public void Create(Sponsor entity)
         {
             sponsors.Add(entity);

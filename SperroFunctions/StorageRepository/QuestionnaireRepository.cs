@@ -12,6 +12,14 @@ namespace SperroFunctions.StorageRepository
     {
         private IList<Questionnaire> questionnaires = new List<Questionnaire>();
 
+        public int Count
+        {
+            get
+            {
+                return this.questionnaires.Count();
+            }
+        }
+
         public void Create(Questionnaire entity)
         {
             this.questionnaires.Add(entity);
